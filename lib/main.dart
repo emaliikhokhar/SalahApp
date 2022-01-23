@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salah_sem_proj/Screens/SignUp.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Salah App',
-      theme: ThemeData(
-          appBarTheme:
-              const AppBarTheme(color: Color.fromRGBO(133, 43, 9, 0.0))),
+      theme: ThemeData(primarySwatch: Colors.grey),
       home: const MyHomePage(title: 'Salah App'),
     );
   }
@@ -32,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _email = '';
   String _password = '';
   final _urlImage =
-      "https://images.unsplash.com/photo-1601191362988-ac6ebec629c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80";
+      "https://images.unsplash.com/photo-1642655078189-72fe1f2d4c91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,8 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.all(15),
                   child: Text(
-                    'Login',
-                    // style: Theme.of(context).textTheme.headline4,
+                    'Welcome',
+                    style: Theme.of(context).textTheme.headline4,
                   ),
                 ),
                 Padding(
@@ -60,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: const TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
+                        fillColor: Colors.white,
                         labelText: 'Email',
                         hintText: 'johndoe@example.com',
                       ),
@@ -82,6 +82,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         print(_emailController);
                       },
                       child: Text('Login'),
+                    )),
+                Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SignUp()),
+                          );
+                        }
+                      },
+                      child: const Text('Signup'),
                     )),
               ],
             ),
